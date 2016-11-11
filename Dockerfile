@@ -20,6 +20,11 @@ RUN apt-get update && apt-get install -y \
 && git clone https://github.com/Relrin/dotfiles.git ~/vimcolors \
 && cp -r ~/vimcolors/vim/colors ~/.vim/colors \
 && rm -rf ~/vimcolors \
+&& mkdir ~/closetag \
+&& git clone https://github.com/vim-scripts/closetag.vim.git ~/closetag \
+&& mkdir ~/.vim/scripts \
+&& cp ~/closetag/plugin/closetag.vim ~/.vim/scripts/closetag.vim \
+&& rm -rf ~/closetag \
 && vim -c PluginInstall -c quitall
 
 ADD .ssh/ ~/
