@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y \
 	python-pip \
 	git \
 	byobu \
+	curl \
 && pip install --upgrade pip \
 && pip install pyflakes pep8 pylint ipython \
 && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim \
@@ -25,7 +26,9 @@ RUN apt-get update && apt-get install -y \
 && mkdir ~/.vim/scripts \
 && cp ~/closetag/plugin/closetag.vim ~/.vim/scripts/closetag.vim \
 && rm -rf ~/closetag \
-&& vim -c PluginInstall -c quitall
+&& vim -c PluginInstall -c quitall \
+&& curl -sL https://deb.nodesource.com/setup_7.x | bash - \
+&& apt-get install -y nodejs
 
 ADD .ssh/ ~/
 ADD .gnupg/ ~/
