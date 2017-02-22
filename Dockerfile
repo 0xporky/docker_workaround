@@ -30,5 +30,9 @@ RUN apt-get update && apt-get install -y \
 && curl -sL https://deb.nodesource.com/setup_7.x | bash - \
 && apt-get install -y nodejs
 
-ADD .ssh/ ~/
-ADD .gnupg/ ~/
+ADD .ssh/ /root/.ssh
+ADD gpgkeys /root/gpgkeys
+
+RUN gpg --import /root/gpgkeys/public.key \
+&& gpg --import /root/gpgkeys/secret.key \
+&& rm -rf /root/gpgkeys
