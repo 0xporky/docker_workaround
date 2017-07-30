@@ -3,7 +3,7 @@
 FROM ubuntu:latest
 MAINTAINER Andrew Komar <0xporky@gmail.com>
 
-RUN apt-get update && apt-get install -y \
+RUN apt update && apt-get install -y \
 	vim \
 	python \
 	python-pip \
