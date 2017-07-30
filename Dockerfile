@@ -28,7 +28,7 @@ RUN apt update && apt-get install -y \
 && rm -rf ~/closetag \
 && vim -c PluginInstall -c quitall \
 && curl -sL https://deb.nodesource.com/setup_7.x | bash - \
-&& apt-get install -y nodejs
+&& apt install -y nodejs
 
 ADD .ssh /root/.ssh
 ADD gpgkeys /root/gpgkeys
